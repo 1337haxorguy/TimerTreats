@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timer Treats — Choose Your Treat</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="screen">
+      <div class="card selection-card">
+        <!-- Top spacer -->
+        <div class="top-field"></div>
+
+        <!-- Main content -->
+        <div class="sel-main">
+
+          <!-- Back arrow -->
+          <div class="sel-back">
+            <button class="back-btn" aria-label="Go back">
+              <img
+                src="https://www.figma.com/api/mcp/asset/9dcc0b45-2c0e-48f8-8198-f6e1ed2dc658"
+                alt=""
+                class="back-icon"
+              />
+            </button>
+          </div>
+
+          <!-- Header -->
+          <div class="sel-header">
+            <h1 class="sel-title">choose your treat</h1>
+            <p class="sel-subtitle">each pastry sets how long you'll focus.</p>
+          </div>
+
+          <!-- Treat grid -->
+          <div class="treat-grid">
+            <button
+              class="treat-card"
+              data-minutes="15"
+              aria-label="sesame bun, 15 minutes"
+            >
+              <div class="treat-img-wrap">
+                <img
+                  src="https://www.figma.com/api/mcp/asset/c00d5cc9-d503-409d-907e-b0694be47788"
+                  alt="sesame bun"
+                  class="treat-img"
+                />
+              </div>
+              <span class="treat-name">sesame bun</span>
+              <span class="treat-duration">15 min</span>
+            </button>
+
+            <button
+              class="treat-card"
+              data-minutes="20"
+              aria-label="ube cookie, 20 minutes"
+            >
+              <div class="treat-img-wrap">
+                <img
+                  src="https://www.figma.com/api/mcp/asset/3a76fe68-6df6-4aee-9e0b-d73740377699"
+                  alt="ube cookie"
+                  class="treat-img"
+                />
+              </div>
+              <span class="treat-name">ube cookie</span>
+              <span class="treat-duration">20 min</span>
+            </button>
+
+            <button
+              class="treat-card"
+              data-minutes="25"
+              aria-label="strawberry swiss role, 25 minutes"
+            >
+              <div class="treat-img-wrap">
+                <img
+                  src="https://www.figma.com/api/mcp/asset/075912ca-fcc5-4e07-8ea0-526799720a4c"
+                  alt="strawberry swiss role"
+                  class="treat-img"
+                />
+              </div>
+              <span class="treat-name">strawberry swiss role</span>
+              <span class="treat-duration">25 min</span>
+            </button>
+
+            <button
+              class="treat-card"
+              data-minutes="30"
+              aria-label="turtle melon bread, 30 minutes"
+            >
+              <div class="treat-img-wrap">
+                <img
+                  src="https://www.figma.com/api/mcp/asset/ca5341ce-c7f1-4a94-91c1-b0170e6e9267"
+                  alt="turtle melon bread"
+                  class="treat-img"
+                />
+              </div>
+              <span class="treat-name">turtle melon bread</span>
+              <span class="treat-duration">30 min</span>
+            </button>
+
+            <button
+              class="treat-card"
+              data-minutes="60"
+              aria-label="matcha crepe cake, 1 hour"
+            >
+              <div class="treat-img-wrap">
+                <img
+                  src="https://www.figma.com/api/mcp/asset/8584f526-7890-4885-aab3-8d4efe1fb229"
+                  alt="matcha crepe cake"
+                  class="treat-img"
+                />
+              </div>
+              <span class="treat-name">matcha crepe cake</span>
+              <span class="treat-duration">1 hour</span>
+            </button>
+
+            <button
+              class="treat-card"
+              data-minutes="120"
+              aria-label="thai tea tiramisu, 2 hours"
+            >
+              <div class="treat-img-wrap">
+                <img
+                  src="https://www.figma.com/api/mcp/asset/c88ca5ca-0d17-4fef-a85f-055d8b70b9f0"
+                  alt="thai tea tiramisu"
+                  class="treat-img"
+                />
+              </div>
+              <span class="treat-name">thai tea tiramisu</span>
+              <span class="treat-duration">2 hours</span>
+            </button>
+          </div>
+
+          <!-- CTA (disabled until a treat is selected) -->
+          <button class="btn-bake btn-start" id="startBtn" disabled>
+            <span class="btn-label">start baking</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="selection.js"></script>
+  </body>
+</html>

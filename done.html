@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timer Treats — Done!</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="screen">
+      <div class="card done-card">
+        <!-- Top spacer -->
+        <div class="top-field"></div>
+
+        <!-- Main content -->
+        <div class="done-main">
+
+          <!-- Back arrow -->
+          <div class="sel-back">
+            <button class="back-btn" aria-label="Go back" id="backBtn">
+              <img
+                src="https://www.figma.com/api/mcp/asset/f628eab4-a997-49df-bc06-eacc63e9a94a"
+                alt=""
+                class="back-icon"
+              />
+            </button>
+          </div>
+
+          <!-- Center content -->
+          <div class="done-content">
+
+            <!-- Title: "your [treat] is done!" with italic "done!" -->
+            <h1 class="done-title">
+              <span id="doneTitleText">your sesame bun is </span><em>done!</em>
+            </h1>
+
+            <!-- Treat illustration -->
+            <div class="done-illustration">
+              <img id="doneImg" src="" alt="" class="done-illustration-img" />
+            </div>
+
+            <!-- Session summary -->
+            <div class="done-summary">
+              <p class="done-summary-text">you worked on</p>
+              <span class="task-tag selected done-chip" id="doneChip"></span>
+              <p class="done-summary-text" id="doneMinutes">for 15 minutes</p>
+            </div>
+
+            <!-- CTAs -->
+            <div class="done-actions">
+              <button class="btn-bake done-primary" id="bakeAgainBtn">
+                <span class="btn-label">bake another treat</span>
+              </button>
+              <button class="done-secondary" id="startOverBtn">
+                <span>start over</span>
+                <img
+                  src="https://www.figma.com/api/mcp/asset/c72e2805-3d3d-4150-ae41-a7d95f40c23a"
+                  alt=""
+                  class="done-rotate-icon"
+                />
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="done.js"></script>
+  </body>
+</html>

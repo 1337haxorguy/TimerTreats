@@ -1,0 +1,1165 @@
+/* ── Fonts ── */
+@font-face {
+  font-family: 'Bogart Trial';
+  src: url('Bogart-Light-trial.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bogart Trial';
+  src: url('Bogart-Light-Italic-trial.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Design tokens ── */
+:root {
+  --off-white: #fffefb;
+  --deep-brown: #352815;
+  --brown: #73572d;
+  --dark-grey-beige: #9f978c;
+  --card-shadow: 0px 19px 27px 12px rgba(0, 0, 0, 0.05);
+  --card-radius: 40px;
+  --btn-radius: 999px;
+}
+
+/* ── Body / phone wrapper ── */
+body {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8e5e0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Card ── */
+.card {
+  background: var(--off-white);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  width: 402px;
+  height: 874px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px 24px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* ── Top spacer field ── */
+.top-field {
+  height: 60px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/* ── Main content block ── */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/* ── Title ── */
+.title-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.title {
+  font-family: 'Bogart Trial', 'Georgia', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 100px;
+  line-height: 0.9;
+  letter-spacing: -5px;
+  color: var(--deep-brown);
+  text-align: center;
+  opacity: 0.84;
+  max-width: 374px;
+}
+
+/* ── Subtitle group ── */
+.subtitle-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+}
+
+.subtitle-line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 10px;
+  width: 266px;
+}
+
+.subtitle-line p {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: normal;
+  letter-spacing: -0.4px;
+  color: var(--dark-grey-beige);
+  text-align: center;
+}
+
+/* ── Treats row — marquee ── */
+.treats-row {
+  width: 100%;
+  overflow: hidden;
+  height: 140px;
+  display: flex;
+  align-items: center;
+}
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.treats-track {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  /* width is 2× the content so translateX(-50%) loops perfectly */
+  animation: marqueeScroll 12s linear infinite;
+  will-change: transform;
+}
+
+@keyframes treatBob {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-14px); }
+}
+
+.treat-item {
+  flex-shrink: 0;
+  width: 112px;
+  height: 112px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: treatBob 2s ease-in-out infinite;
+}
+
+/* Stagger each item's bounce */
+.treat-item:nth-child(1)  { animation-delay: 0s; }
+.treat-item:nth-child(2)  { animation-delay: 0.3s; }
+.treat-item:nth-child(3)  { animation-delay: 0.6s; }
+.treat-item:nth-child(4)  { animation-delay: 0.9s; }
+.treat-item:nth-child(5)  { animation-delay: 1.2s; }
+.treat-item:nth-child(6)  { animation-delay: 0s; }
+.treat-item:nth-child(7)  { animation-delay: 0.3s; }
+.treat-item:nth-child(8)  { animation-delay: 0.6s; }
+.treat-item:nth-child(9)  { animation-delay: 0.9s; }
+.treat-item:nth-child(10) { animation-delay: 1.2s; }
+
+.treat-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  display: block;
+}
+
+/* ── CTA Button ── */
+.btn-bake {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 354px;
+  max-width: 100%;
+  padding: 24px 16px;
+  background: var(--deep-brown);
+  border-radius: var(--btn-radius);
+  text-decoration: none;
+  color: white;
+  flex-shrink: 0;
+  transition: opacity 0.2s ease;
+}
+
+.btn-bake:hover {
+  opacity: 0.88;
+}
+
+.btn-bake:active {
+  opacity: 0.75;
+  transform: scale(0.98);
+}
+
+.btn-label {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 22px;
+  color: white;
+  white-space: nowrap;
+}
+
+.btn-arrow {
+  font-size: 20px;
+  line-height: 22px;
+  color: white;
+}
+
+/* ══════════════════════════════════════════
+   Selection screen
+══════════════════════════════════════════ */
+
+/* Override card layout for selection screen */
+.selection-card {
+  justify-content: flex-start;
+  padding: 0 24px 24px;
+  gap: 0;
+}
+
+/* Scrollable main area so the card doesn't overflow on small screens */
+.sel-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 19px;
+  width: 100%;
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.sel-main::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Back arrow ── */
+.sel-back {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  line-height: 0;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.back-btn:hover {
+  opacity: 1;
+}
+
+.back-icon {
+  width: 19px;
+  height: 19px;
+  display: block;
+}
+
+/* ── Header ── */
+.sel-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.sel-title {
+  font-family: 'Bogart Trial', 'Georgia', serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 44px;
+  letter-spacing: -2px;
+  color: #000;
+  opacity: 0.84;
+  text-align: left;
+  width: 100%;
+  max-width: 284px;
+}
+
+.sel-subtitle {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: normal;
+  letter-spacing: -0.16px;
+  color: var(--dark-grey-beige);
+  text-align: center;
+  width: 100%;
+}
+
+/* ── Treat grid ── */
+.treat-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  width: 353px;
+  max-width: 100%;
+  flex-shrink: 0;
+}
+
+/* ── Treat card ── */
+.treat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 168px;
+  height: 168px;
+  padding: 16px;
+  background: #f9f6f0;
+  border-radius: 20px;
+  box-shadow: 2px 2px 16px 0px rgba(0, 0, 0, 0.05);
+  border: 2px solid transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.treat-card:hover {
+  box-shadow: 2px 2px 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+.treat-card.selected {
+  border-color: var(--deep-brown);
+  box-shadow: 2px 2px 20px 0px rgba(53, 40, 21, 0.15);
+}
+
+/* ── Card image ── */
+.treat-img-wrap {
+  width: 112px;
+  height: 73.5px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.treat-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  display: block;
+}
+
+/* ── Card name ── */
+.treat-name {
+  font-family: 'Bogart Trial', 'Georgia', serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: normal;
+  letter-spacing: -0.16px;
+  color: #000;
+  text-align: center;
+}
+
+/* ── Duration pill ── */
+.treat-duration {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 12px;
+  background: #ede9e0;
+  border-radius: 100px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: normal;
+  letter-spacing: -0.16px;
+  color: var(--dark-grey-beige);
+  white-space: nowrap;
+}
+
+/* ══════════════════════════════════════════
+   Task screen
+══════════════════════════════════════════ */
+
+.task-card {
+  justify-content: flex-start;
+}
+
+.task-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  width: 100%;
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.task-main::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Treat preview ── */
+.task-treat-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: #fcf9f2;
+  border-radius: 40px;
+  padding: 32px 62px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.task-treat-img-wrap {
+  width: 80px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.task-treat-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  display: block;
+}
+
+.task-treat-name {
+  font-family: 'Bogart Trial', 'Georgia', serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: normal;
+  letter-spacing: -0.24px;
+  color: #000;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.task-treat-duration {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border: 1px solid var(--dark-grey-beige);
+  border-radius: 100px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: normal;
+  letter-spacing: -0.16px;
+  color: var(--dark-grey-beige);
+  white-space: nowrap;
+}
+
+/* ── Form section ── */
+.task-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 32px 24px;
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px 0px rgba(255, 255, 255, 0.25);
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.task-title {
+  font-family: 'Bogart Trial', 'Georgia', serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 44px;
+  letter-spacing: -2px;
+  color: var(--deep-brown);
+  text-align: center;
+  width: 100%;
+}
+
+/* ── Input ── */
+.task-input-wrap {
+  width: 100%;
+  border-bottom: 2px solid var(--dark-grey-beige);
+}
+
+.task-input {
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 8px 0;
+  font-family: 'Bogart Trial', 'Georgia', serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: normal;
+  letter-spacing: -0.24px;
+  color: var(--deep-brown);
+}
+
+.task-input::placeholder {
+  color: #d8d2ca;
+}
+
+/* ── Quick-select tags ── */
+.task-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+}
+
+.task-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  background: #ede9e0;
+  border: none;
+  border-radius: 100px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: normal;
+  letter-spacing: -0.2px;
+  color: var(--dark-grey-beige);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.task-tag:hover {
+  background: #d8d2ca;
+}
+
+.task-tag.selected {
+  background: var(--brown);
+  color: var(--off-white);
+}
+
+.task-tag.selected:hover {
+  background: var(--brown);
+  opacity: 0.9;
+}
+
+/* ── Bottom actions ── */
+.task-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+/* ── Skip ── */
+.task-skip {
+  background: none;
+  border: none;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 22px;
+  color: var(--dark-grey-beige);
+  text-align: center;
+  cursor: pointer;
+  padding: 8px;
+  flex-shrink: 0;
+}
+
+.task-skip:hover {
+  opacity: 0.7;
+}
+
+/* ── Continue button ── */
+.task-continue {
+  width: 354px;
+  max-width: 100%;
+  gap: 8px;
+}
+
+.task-continue-arrow {
+  width: 20px;
+  height: 20px;
+  display: block;
+  flex-shrink: 0;
+  /* invert white so arrow shows on dark bg */
+  filter: brightness(0) invert(1);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ══════════════════════════════════════════
+   Break length screen
+══════════════════════════════════════════ */
+
+.break-card {
+  justify-content: flex-start;
+}
+
+.break-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  width: 100%;
+  flex: 1;
+}
+
+.break-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 32px 24px;
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px 0px rgba(255, 255, 255, 0.25);
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.break-title {
+  font-family: 'Bogart Trial', 'Georgia', serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 44px;
+  letter-spacing: -2px;
+  color: var(--deep-brown);
+  text-align: center;
+  width: 100%;
+}
+
+/* ── Stepper ── */
+.break-stepper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.stepper-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: opacity 0.15s ease;
+}
+
+.stepper-btn:hover {
+  opacity: 0.7;
+}
+
+.stepper-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.stepper-symbol {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 1;
+  color: #4b3100;
+  display: block;
+  width: 40px;
+  text-align: center;
+}
+
+.stepper-value {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: normal;
+  color: #4b3100;
+  text-align: center;
+  min-width: 60px;
+}
+
+/* ── Let's bake button ── */
+.break-bake {
+  width: 354px;
+  max-width: 100%;
+  gap: 8px;
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+/* ══════════════════════════════════════════
+   Timer screen
+══════════════════════════════════════════ */
+
+.timer-card {
+  justify-content: flex-start;
+}
+
+.timer-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  flex: 1;
+}
+
+/* ── Home link ── */
+.timer-home-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.timer-home-label {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: -0.4px;
+  color: var(--dark-grey-beige);
+  opacity: 0.84;
+}
+
+/* ── Content stack ── */
+.timer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  width: 100%;
+  flex: 1;
+}
+
+/* ── Illustration ── */
+@keyframes illustrationBounce {
+  0%, 100% { transform: translateY(0); }
+  30%       { transform: translateY(-10px); }
+  50%       { transform: translateY(-6px); }
+  70%       { transform: translateY(-12px); }
+  85%       { transform: translateY(-4px); }
+}
+
+.timer-illustration {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+  animation: illustrationBounce 2.8s ease-in-out infinite;
+}
+
+.timer-illustration-img {
+  width: 256px;
+  height: 158px;
+  object-fit: cover;
+  pointer-events: none;
+  display: block;
+}
+
+/* ── Countdown display ── */
+.timer-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(75, 49, 0, 0.04);
+  border-radius: 40px;
+  padding: 30px 64px;
+  flex-shrink: 0;
+}
+
+.timer-value {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: normal;
+  color: #4b3100;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ── Task chip ── */
+.timer-chip-wrap {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.timer-chip {
+  cursor: default;
+}
+
+/* ── Copy ── */
+.timer-copy {
+  font-family: 'Bogart Trial', 'Georgia', serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 44px;
+  letter-spacing: -2px;
+  color: var(--deep-brown);
+  text-align: center;
+  width: 306px;
+  flex-shrink: 0;
+}
+
+/* ── Pause / resume button ── */
+.timer-pause-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--deep-brown);
+  border: none;
+  border-radius: 999px;
+  padding: 24px 48px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: opacity 0.2s ease;
+}
+
+.timer-pause-btn:hover {
+  opacity: 0.88;
+}
+
+.timer-pause-btn:active {
+  opacity: 0.75;
+  transform: scale(0.98);
+}
+
+.timer-pause-btn .btn-label {
+  font-size: 20px;
+}
+
+.timer-pause-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  flex-shrink: 0;
+  filter: brightness(0) invert(1);
+}
+
+.timer-play-icon {
+  font-size: 14px;
+  line-height: 1;
+  color: white;
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════
+   Done screen
+══════════════════════════════════════════ */
+
+.done-card {
+  justify-content: flex-start;
+}
+
+.done-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  flex: 1;
+}
+
+.done-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  width: 100%;
+  flex: 1;
+}
+
+/* ── Title ── */
+.done-title {
+  font-family: 'Bogart Trial', 'Georgia', serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 44px;
+  letter-spacing: -2px;
+  color: var(--deep-brown);
+  text-align: center;
+  width: 262px;
+}
+
+.done-title em {
+  font-style: italic;
+}
+
+/* ── Illustration ── */
+@keyframes treatPopIn {
+  0%   { transform: scale(0.3) rotate(-180deg) translateY(40px); opacity: 0; }
+  50%  { transform: scale(1.15) rotate(12deg) translateY(-16px); opacity: 1; }
+  68%  { transform: scale(0.95) rotate(-6deg) translateY(8px); }
+  82%  { transform: scale(1.07) rotate(3deg) translateY(-6px); }
+  92%  { transform: scale(0.98) rotate(-1deg) translateY(3px); }
+  100% { transform: scale(1) rotate(0deg) translateY(0); }
+}
+
+.done-illustration {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.done-illustration-img {
+  width: 300px;
+  height: 185px;
+  object-fit: contain;
+  pointer-events: none;
+  display: block;
+  animation: treatPopIn 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* ── Session summary ── */
+.done-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.done-summary-text {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.4px;
+  color: var(--deep-brown);
+  text-align: center;
+  opacity: 0.84;
+  width: 215px;
+}
+
+.done-chip {
+  cursor: default;
+}
+
+/* ── CTAs ── */
+.done-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+}
+
+.done-primary {
+  padding: 24px 48px;
+  width: auto;
+}
+
+.done-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 22px;
+  color: var(--dark-grey-beige);
+  text-align: center;
+  transition: opacity 0.2s ease;
+}
+
+.done-secondary:hover {
+  opacity: 0.7;
+}
+
+.done-rotate-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════
+   Burnt screen
+══════════════════════════════════════════ */
+
+.burnt-card {
+  justify-content: flex-start;
+}
+
+.burnt-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  flex: 1;
+}
+
+.burnt-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  width: 100%;
+  flex: 1;
+}
+
+.burnt-title {
+  font-family: 'Bogart Trial', 'Georgia', serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 44px;
+  letter-spacing: -2px;
+  color: var(--deep-brown);
+  text-align: center;
+  width: 262px;
+}
+
+.burnt-illustration {
+  width: 300px;
+  height: 221px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.burnt-illustration-img {
+  width: 100%;
+  height: 135.75%;
+  object-fit: cover;
+  object-position: center top;
+  margin-top: -9.73%;
+  pointer-events: none;
+  display: block;
+}
+
+.burnt-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  padding: 0 48px;
+}
+
+.burnt-primary {
+  width: 100%;
+  padding: 24px 48px;
+}
+
+.burnt-secondary {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 48px;
+  background: #d8d2ca;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.burnt-secondary .btn-label {
+  color: var(--brown);
+}
+
+.burnt-secondary:hover {
+  opacity: 0.88;
+}
+
+/* ── Start button (reuses .btn-bake) ── */
+.btn-start {
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+.btn-start:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 500px) {
+  .card {
+    width: 100vw;
+    height: 100svh;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .screen {
+    padding: 0;
+  }
+
+  .title {
+    font-size: 80px;
+  }
+
+  .treats-track {
+    animation-duration: 9s;
+  }
+
+  /* Selection screen responsive */
+  .treat-grid {
+    width: 100%;
+  }
+
+  .treat-card {
+    width: calc(50% - 8px);
+    height: auto;
+    min-height: 148px;
+  }
+}

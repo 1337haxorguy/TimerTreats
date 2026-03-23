@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timer Treats — Break Length</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="screen">
+      <div class="card break-card">
+        <!-- Top spacer -->
+        <div class="top-field"></div>
+
+        <!-- Main content -->
+        <div class="break-main">
+
+          <!-- Back arrow -->
+          <div class="sel-back">
+            <button class="back-btn" aria-label="Go back">
+              <img
+                src="https://www.figma.com/api/mcp/asset/fab4d39e-60d5-4d19-ba24-632194bbf1a8"
+                alt=""
+                class="back-icon"
+              />
+            </button>
+          </div>
+
+          <!-- Treat preview card -->
+          <div class="task-treat-preview">
+            <div class="task-treat-img-wrap">
+              <img id="treatImg" src="" alt="" class="task-treat-img" />
+            </div>
+            <span id="treatName" class="task-treat-name">sesame bun</span>
+            <span id="treatDuration" class="task-treat-duration">15 min</span>
+          </div>
+
+          <!-- Break length section -->
+          <div class="break-form">
+            <h1 class="break-title">break length</h1>
+
+            <div class="break-stepper">
+              <button class="stepper-btn" id="decrementBtn" aria-label="Decrease break length">
+                <span class="stepper-symbol">−</span>
+              </button>
+              <span class="stepper-value" id="breakValue">5</span>
+              <button class="stepper-btn" id="incrementBtn" aria-label="Increase break length">
+                <span class="stepper-symbol">+</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Let's bake button -->
+          <button class="btn-bake break-bake" id="bakeBtn">
+            <span class="btn-label">let's bake</span>
+            <img
+              src="https://www.figma.com/api/mcp/asset/dfb2498f-ed63-4c6f-9fae-857a3d44ce28"
+              alt=""
+              class="task-continue-arrow"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="break.js"></script>
+  </body>
+</html>

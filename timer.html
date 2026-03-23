@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timer Treats — Baking...</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="screen">
+      <div class="card timer-card">
+        <!-- Top spacer -->
+        <div class="top-field"></div>
+
+        <!-- Main content -->
+        <div class="timer-main">
+
+          <!-- Home link -->
+          <button class="timer-home-btn" id="homeBtn" aria-label="Go home">
+            <img
+              src="https://www.figma.com/api/mcp/asset/db87ab38-8f6d-41c0-b59d-31549e183178"
+              alt=""
+              class="back-icon"
+            />
+            <span class="timer-home-label">home</span>
+          </button>
+
+          <!-- Centered content group -->
+          <div class="timer-content">
+
+            <!-- Baking illustration -->
+            <div class="timer-illustration">
+              <img
+                src="https://www.figma.com/api/mcp/asset/49f5d8d1-e41d-4bb9-8bcd-50f3c60cd7cc"
+                alt="baking ingredients"
+                class="timer-illustration-img"
+              />
+            </div>
+
+            <!-- Countdown display -->
+            <div class="timer-display">
+              <span class="timer-value" id="timerValue">00:00</span>
+            </div>
+
+            <!-- Task chip -->
+            <div class="timer-chip-wrap" id="chipWrap">
+              <span class="task-tag selected timer-chip" id="taskChip"></span>
+            </div>
+
+            <!-- Copy -->
+            <p class="timer-copy" id="timerCopy">your treat is in the oven...</p>
+
+            <!-- Pause / Resume button -->
+            <button class="timer-pause-btn" id="pauseBtn">
+              <span class="btn-label" id="pauseLabel">pause</span>
+              <img
+                src="https://www.figma.com/api/mcp/asset/c5b7e585-c5e2-4070-b5cf-7265a48faa45"
+                alt=""
+                class="timer-pause-icon"
+                id="pauseIcon"
+              />
+              <span class="timer-play-icon hidden" id="playIcon">▶</span>
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="timer.js"></script>
+  </body>
+</html>

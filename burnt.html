@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timer Treats — Burnt!</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="screen">
+      <div class="card burnt-card">
+        <!-- Top spacer -->
+        <div class="top-field"></div>
+
+        <!-- Main content -->
+        <div class="burnt-main">
+
+          <!-- Back arrow -->
+          <div class="sel-back">
+            <button class="back-btn" aria-label="Go back" id="backBtn">
+              <img
+                src="https://www.figma.com/api/mcp/asset/b3f16710-3a9c-4776-9f1c-9aa97a6ea7b3"
+                alt=""
+                class="back-icon"
+              />
+            </button>
+          </div>
+
+          <!-- Center content -->
+          <div class="burnt-content">
+
+            <!-- Title -->
+            <h1 class="burnt-title" id="burntTitle">
+              you lost focus and burnt your sesame bun!
+            </h1>
+
+            <!-- Burnt treat illustration -->
+            <div class="burnt-illustration">
+              <img
+                src="https://www.figma.com/api/mcp/asset/c476aabd-7f49-4d29-8c38-438f98b35a18"
+                alt="burnt treat"
+                class="burnt-illustration-img"
+              />
+            </div>
+
+            <!-- CTAs -->
+            <div class="burnt-actions">
+              <button class="btn-bake burnt-primary" id="restartBtn">
+                <span class="btn-label">restart timer</span>
+              </button>
+              <button class="burnt-secondary" id="bakeAnotherBtn">
+                <span class="btn-label">bake another treat</span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="burnt.js"></script>
+  </body>
+</html>
