@@ -84,6 +84,15 @@ body {
   flex-shrink: 0;
 }
 
+/* ── Responsive headline spans ── */
+.headline-mobile { display: none; }
+.headline-desktop { display: inline; }
+
+/* ── Blue arrow fix ── */
+.back-btn {
+  color: var(--deep-brown);
+}
+
 /* ── Brand label ("Timer Treats" at top) ── */
 .brand-label {
   font-family: 'Bogart Trial', 'Georgia', serif;
@@ -1173,6 +1182,15 @@ body {
     font-size: 36px;
   }
 
+  .splash-subtitle {
+    max-width: 520px;
+    white-space: pre-line;
+  }
+
+  .splash-hero {
+    margin-bottom: 8px;
+  }
+
   .splash-headline {
     font-size: 128px;
   }
@@ -1393,32 +1411,111 @@ body {
     padding: 0;
   }
 
+  /* ── Splash ── */
+  .headline-desktop { display: none; }
+  .headline-mobile  { display: inline; }
+
   .splash-headline {
     font-size: 72px;
   }
 
   .treats-row {
     margin-top: -44px;
-    height: 140px;
+    height: 155px;
   }
 
   .treat-item {
-    width: 118px;
-    height: 118px;
+    width: 140px;
+    height: 140px;
   }
 
   .treats-track {
     animation-duration: 8s;
   }
 
-  /* Selection screen responsive */
+  /* ── Selection screen — fit everything without scrolling ── */
+  .sel-main {
+    gap: 14px;
+    overflow-y: hidden;
+  }
+
+  .sel-header {
+    gap: 6px;
+  }
+
+  .sel-title {
+    font-size: 30px;
+    line-height: 34px;
+  }
+
   .treat-grid {
     width: 100%;
+    gap: 10px;
   }
 
   .treat-card {
-    width: calc(50% - 8px);
+    width: calc(50% - 5px);
     height: auto;
-    min-height: 148px;
+    min-height: 0;
+    padding: 10px 12px;
+    gap: 4px;
+  }
+
+  .treat-img-wrap {
+    width: 70px;
+    height: 46px;
+  }
+
+  .treat-name {
+    font-size: 12px;
+  }
+
+  .treat-duration {
+    font-size: 12px;
+    padding: 3px 8px;
+  }
+
+  /* ── Task screen — fit without scrolling ── */
+  .task-main {
+    gap: 14px;
+    overflow-y: hidden;
+  }
+
+  .task-treat-preview {
+    padding: 16px 40px;
+  }
+
+  .task-form {
+    padding: 16px 20px;
+    gap: 12px;
+  }
+
+  .task-title {
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  /* ── Timer screen — fit without scrolling ── */
+  .timer-illustration-img {
+    width: 200px;
+    height: 124px;
+  }
+
+  .timer-content {
+    gap: 28px;
+  }
+
+  .timer-display {
+    padding: 18px 48px;
+  }
+
+  .timer-copy {
+    font-size: 34px;
+    line-height: 38px;
+    width: 280px;
+  }
+
+  .timer-pause-btn {
+    padding: 18px 48px;
   }
 }
