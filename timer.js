@@ -109,8 +109,11 @@ document.addEventListener('visibilitychange', () => {
       localStorage.setItem('burntOnReturn', 'true');
     }
   } else {
-    // User came back to this tab — cancel burnt, they can see the timer
-    localStorage.removeItem('burntOnReturn');
+    // User came back — if they left during a running timer, they're burnt
+    if (localStorage.getItem('burntOnReturn') === 'true') {
+      localStorage.removeItem('burntOnReturn');
+      window.location.href = 'burnt.html';
+    }
   }
 });
 
