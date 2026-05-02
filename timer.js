@@ -114,27 +114,20 @@ homeBtn.addEventListener('click', () => {
 // ── Burnt when the timer is abandoned ──────────────────────────
 let intentionalExit = false;
 
-// True on mobile/tablet (touch devices) — false on desktop
-const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
-  || window.matchMedia('(pointer: coarse)').matches;
-
-// pagehide fires on tab close or navigation away — catches intentional exits on desktop
+// pagehide fires when the user closes the tab or navigates away — the only
+// deliberate exit signal. Screen auto-lock only fires visibilitychange (not
+// pagehide), so locking the phone will never trigger a burn.
 window.addEventListener('pagehide', () => {
   if (!intentionalExit && timerStarted && timeRemaining > 0 && !isPaused) {
     localStorage.setItem('burntOnReturn', 'true');
   }
 });
 
-// visibilitychange: on mobile, backgrounding the app = abandoning the timer.
-// On desktop, switching tabs is normal — don't punish it. Desktop burns are
-// handled by pagehide (closing the tab), detected by app.js on next visit.
+// visibilitychange: only used to catch a burn set by pagehide on the same tab
+// (e.g. forward/back navigation returning to this page). Does NOT set burntOnReturn
+// so screen lock and app-switching are safe.
 document.addEventListener('visibilitychange', () => {
-  if (document.visibilityState === 'hidden') {
-    if (isMobile && !intentionalExit && timerStarted && timeRemaining > 0 && !isPaused) {
-      localStorage.setItem('burntOnReturn', 'true');
-    }
-  } else {
-    // Coming back to the tab (mobile primarily) — redirect if burnt
+  if (document.visibilityState === 'visible') {
     if (localStorage.getItem('burntOnReturn') === 'true') {
       localStorage.removeItem('burntOnReturn');
       window.location.href = 'burnt.html';

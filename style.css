@@ -1435,44 +1435,62 @@ body {
 
   /* ── Selection screen — fit everything without scrolling ── */
   .sel-main {
-    gap: 14px;
+    gap: 12px;
     overflow-y: hidden;
   }
 
   .sel-header {
-    gap: 6px;
+    gap: 4px;
+    align-items: center;
   }
 
   .sel-title {
     font-size: 30px;
     line-height: 34px;
+    text-align: center;
+    max-width: 100%;
   }
 
+  .sel-subtitle {
+    text-align: center;
+  }
+
+  /* Grid fills all space between header and button */
   .treat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    flex: 1;
     width: 100%;
     gap: 10px;
+    align-items: stretch;
   }
 
   .treat-card {
-    width: calc(50% - 5px);
-    height: auto;
+    width: 100%;
+    height: 100%;
     min-height: 0;
-    padding: 10px 12px;
-    gap: 4px;
+    padding: 12px;
+    gap: 6px;
   }
 
+  /* Image fills available card space */
   .treat-img-wrap {
-    width: 70px;
-    height: 46px;
+    flex: 1;
+    width: 100%;
+    height: auto;
+    max-height: 72px;
   }
 
   .treat-name {
-    font-size: 12px;
+    font-size: 13px;
+    white-space: normal;
+    text-align: center;
   }
 
   .treat-duration {
     font-size: 12px;
-    padding: 3px 8px;
+    padding: 3px 10px;
   }
 
   /* ── Task screen — fit without scrolling ── */
