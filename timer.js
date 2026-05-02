@@ -33,10 +33,28 @@ if (chipText) {
   chipWrap.style.display = 'none';
 }
 
-// Copy text
-if (treat) {
-  timerCopyEl.textContent = `your ${treat.name} is in the oven...`;
+// Copy text — rotates every 3 minutes
+const copyLines = treat ? [
+  `your ${treat.name}\nis in the oven...`,
+  `we're whisking up\nyour ${treat.name}...`,
+  `your ${treat.name}\nis almost ready...`,
+  `the oven's doing\nits thing...`,
+  `your ${treat.name}\nis rising...`,
+  `almost there —\nyour ${treat.name} awaits`,
+  `your ${treat.name}\nheard you working...`,
+  `stay focused —\nyour ${treat.name} is watching`,
+  `patience, bestie —\nyour ${treat.name} needs this`,
+  `your ${treat.name}\ncan smell your focus`,
+] : [];
+
+function updateCopy() {
+  if (!copyLines.length) return;
+  const elapsed = totalSeconds - timeRemaining;
+  const idx = Math.floor(elapsed / 60) % copyLines.length;
+  timerCopyEl.textContent = copyLines[idx];
 }
+
+updateCopy();
 
 // ── Timer logic ────────────────────────────────────────────────
 
@@ -56,6 +74,7 @@ function tick() {
   timeRemaining--;
   sessionStorage.setItem('timeRemaining', timeRemaining);
   timerValueEl.textContent = formatTime(timeRemaining);
+  updateCopy();
 }
 
 function startTimer() {
@@ -92,24 +111,30 @@ homeBtn.addEventListener('click', () => {
   window.location.href = 'index.html';
 });
 
-// ── Burnt when Safari is closed or app is backgrounded ─────────
+// ── Burnt when the timer is abandoned ──────────────────────────
 let intentionalExit = false;
 
-// pagehide fires reliably when Safari is closed or the tab killed
+// True on mobile/tablet (touch devices) — false on desktop
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+  || window.matchMedia('(pointer: coarse)').matches;
+
+// pagehide fires on tab close or navigation away — catches intentional exits on desktop
 window.addEventListener('pagehide', () => {
   if (!intentionalExit && timerStarted && timeRemaining > 0 && !isPaused) {
     localStorage.setItem('burntOnReturn', 'true');
   }
 });
 
-// visibilitychange covers backgrounding (switching apps in iOS)
+// visibilitychange: on mobile, backgrounding the app = abandoning the timer.
+// On desktop, switching tabs is normal — don't punish it. Desktop burns are
+// handled by pagehide (closing the tab), detected by app.js on next visit.
 document.addEventListener('visibilitychange', () => {
   if (document.visibilityState === 'hidden') {
-    if (!intentionalExit && timerStarted && timeRemaining > 0 && !isPaused) {
+    if (isMobile && !intentionalExit && timerStarted && timeRemaining > 0 && !isPaused) {
       localStorage.setItem('burntOnReturn', 'true');
     }
   } else {
-    // User came back — if they left during a running timer, they're burnt
+    // Coming back to the tab (mobile primarily) — redirect if burnt
     if (localStorage.getItem('burntOnReturn') === 'true') {
       localStorage.removeItem('burntOnReturn');
       window.location.href = 'burnt.html';

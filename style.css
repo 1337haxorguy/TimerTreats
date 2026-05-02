@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500&display=swap');
+
 /* ── Fonts ── */
 @font-face {
   font-family: 'Bogart Trial';
@@ -38,7 +40,8 @@ body {
   align-items: center;
   justify-content: center;
   background: #e8e5e0;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -1px;
 }
 
 .screen {
@@ -76,58 +79,56 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
   width: 100%;
   flex-shrink: 0;
 }
 
-/* ── Title ── */
-.title-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-.title {
+/* ── Brand label ("Timer Treats" at top) ── */
+.brand-label {
   font-family: 'Bogart Trial', 'Georgia', serif;
   font-style: italic;
   font-weight: 300;
-  font-size: 100px;
-  line-height: 0.9;
+  font-size: 28px;
+  letter-spacing: -1.5px;
+  color: var(--deep-brown);
+  text-align: center;
+  width: 100%;
+  opacity: 0.5;
+}
+
+/* ── Splash hero: headline + overlapping treats ── */
+.splash-hero {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* ── Splash headline ── */
+.splash-headline {
+  font-family: 'Bogart Trial', 'Georgia', serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 88px;
+  line-height: 0.88;
   letter-spacing: -5px;
   color: var(--deep-brown);
   text-align: center;
   opacity: 0.84;
-  max-width: 374px;
+  position: relative;
+  z-index: 1;
 }
 
-/* ── Subtitle group ── */
-.subtitle-group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  width: 100%;
-}
-
-.subtitle-line {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 10px;
-  width: 266px;
-}
-
-.subtitle-line p {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: normal;
-  letter-spacing: -0.4px;
+/* ── Splash subtitle ── */
+.splash-subtitle {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -1px;
   color: var(--dark-grey-beige);
   text-align: center;
+  max-width: 300px;
 }
 
 /* ── Treats row — marquee ── */
@@ -135,9 +136,12 @@ body {
   width: calc(100% + 48px);
   margin-left: -24px;
   overflow: hidden;
-  height: 140px;
+  height: 160px;
   display: flex;
   align-items: center;
+  position: relative;
+  z-index: 2;
+  margin-top: -58px;
 }
 
 @keyframes marqueeScroll {
@@ -148,9 +152,9 @@ body {
 .treats-track {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 16px;
   /* width is 2× the content so translateX(-50%) loops perfectly */
-  animation: marqueeScroll 12s linear infinite;
+  animation: marqueeScroll 10s linear infinite;
   will-change: transform;
 }
 
@@ -161,8 +165,8 @@ body {
 
 .treat-item {
   flex-shrink: 0;
-  width: 112px;
-  height: 112px;
+  width: 140px;
+  height: 140px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -216,10 +220,11 @@ body {
 }
 
 .btn-label {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 400;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
   font-size: 20px;
   line-height: 22px;
+  letter-spacing: -1px;
   color: white;
   white-space: nowrap;
 }
@@ -311,11 +316,11 @@ body {
 }
 
 .sel-subtitle {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 400;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
   font-size: 16px;
   line-height: normal;
-  letter-spacing: -0.16px;
+  letter-spacing: -1px;
   color: var(--dark-grey-beige);
   text-align: center;
   width: 100%;
@@ -402,11 +407,11 @@ body {
   padding: 4px 12px;
   background: #ede9e0;
   border-radius: 100px;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 400;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
   font-size: 16px;
   line-height: normal;
-  letter-spacing: -0.16px;
+  letter-spacing: -1px;
   color: var(--dark-grey-beige);
   white-space: nowrap;
 }
@@ -486,11 +491,11 @@ body {
   padding: 8px 16px;
   border: 1px solid var(--dark-grey-beige);
   border-radius: 100px;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 400;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
   font-size: 16px;
   line-height: normal;
-  letter-spacing: -0.16px;
+  letter-spacing: -1px;
   color: var(--dark-grey-beige);
   white-space: nowrap;
 }
@@ -561,11 +566,11 @@ body {
   background: #ede9e0;
   border: none;
   border-radius: 100px;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 400;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
   font-size: 20px;
   line-height: normal;
-  letter-spacing: -0.2px;
+  letter-spacing: -1px;
   color: var(--dark-grey-beige);
   cursor: pointer;
   white-space: nowrap;
@@ -600,10 +605,11 @@ body {
 .task-skip {
   background: none;
   border: none;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 400;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
   font-size: 20px;
   line-height: 22px;
+  letter-spacing: -1px;
   color: var(--dark-grey-beige);
   text-align: center;
   cursor: pointer;
@@ -703,9 +709,10 @@ body {
 }
 
 .stepper-symbol {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 300;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
   font-size: 32px;
+  letter-spacing: -1px;
   line-height: 1;
   color: #4b3100;
   display: block;
@@ -714,9 +721,10 @@ body {
 }
 
 .stepper-value {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 400;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
   font-size: 50px;
+  letter-spacing: -1px;
   line-height: normal;
   color: #4b3100;
   text-align: center;
@@ -763,11 +771,11 @@ body {
 }
 
 .timer-home-label {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 400;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
   font-size: 20px;
   line-height: 20px;
-  letter-spacing: -0.4px;
+  letter-spacing: -1px;
   color: var(--dark-grey-beige);
   opacity: 0.84;
 }
@@ -819,9 +827,10 @@ body {
 }
 
 .timer-value {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 400;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
   font-size: 48px;
+  letter-spacing: -1px;
   line-height: normal;
   color: #4b3100;
   text-align: center;
@@ -851,6 +860,7 @@ body {
   text-align: center;
   width: 306px;
   flex-shrink: 0;
+  white-space: pre-line;
 }
 
 /* ── Pause / resume button ── */
@@ -973,11 +983,11 @@ body {
 }
 
 .done-summary-text {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 400;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
   font-size: 20px;
   line-height: 24px;
-  letter-spacing: -0.4px;
+  letter-spacing: -1px;
   color: var(--deep-brown);
   text-align: center;
   opacity: 0.84;
@@ -1009,10 +1019,11 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 400;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
   font-size: 20px;
   line-height: 22px;
+  letter-spacing: -1px;
   color: var(--dark-grey-beige);
   text-align: center;
   transition: opacity 0.2s ease;
@@ -1155,26 +1166,26 @@ body {
   .main-content {
     flex: 1;
     justify-content: center;
-    gap: 36px;
+    gap: 24px;
   }
 
-  .title {
-    font-size: 140px;
-    max-width: none;
+  .brand-label {
+    font-size: 36px;
   }
 
-  .subtitle-line {
-    width: auto;
-    max-width: 340px;
-  }
-
-  .subtitle-line p {
-    font-size: 22px;
+  .splash-headline {
+    font-size: 128px;
   }
 
   .treats-row {
     width: calc(100% + 160px);
     margin-left: -80px;
+    height: 180px;
+    margin-top: -68px;
+  }
+
+  .treat-item {
+    width: 160px;
     height: 160px;
   }
 
@@ -1382,12 +1393,22 @@ body {
     padding: 0;
   }
 
-  .title {
-    font-size: 80px;
+  .splash-headline {
+    font-size: 72px;
+  }
+
+  .treats-row {
+    margin-top: -44px;
+    height: 140px;
+  }
+
+  .treat-item {
+    width: 118px;
+    height: 118px;
   }
 
   .treats-track {
-    animation-duration: 9s;
+    animation-duration: 8s;
   }
 
   /* Selection screen responsive */

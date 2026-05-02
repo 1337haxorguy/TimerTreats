@@ -41,11 +41,11 @@ cards.forEach((card) => {
     const y = e.clientY - rect.top;
     const cx = rect.width / 2;
     const cy = rect.height / 2;
-    const rotateY = ((x - cx) / cx) * 25;
-    const rotateX = -((y - cy) / cy) * 25;
+    const rotateY = ((x - cx) / cx) * 10;
+    const rotateX = -((y - cy) / cy) * 10;
     card.style.transition = 'transform 0.05s ease, box-shadow 0.05s ease';
-    card.style.transform = `perspective(500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.08)`;
-    card.style.boxShadow = `${-rotateY * 0.8}px ${rotateX * 0.8}px 32px rgba(0,0,0,0.18)`;
+    card.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.04)`;
+    card.style.boxShadow = `${-rotateY * 0.5}px ${rotateX * 0.5}px 24px rgba(0,0,0,0.12)`;
   });
 
   card.addEventListener('mouseleave', () => {

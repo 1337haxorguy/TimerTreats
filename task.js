@@ -56,16 +56,18 @@ document.querySelector('.back-btn').addEventListener('click', () => {
   window.location.href = 'selection.html';
 });
 
-// Skip → go to break length screen without a task label
+// Skip → go to timer screen without a task label
 skipBtn.addEventListener('click', () => {
   localStorage.removeItem('taskLabel');
-  window.location.href = 'break.html';
+  sessionStorage.removeItem('timeRemaining');
+  window.location.href = 'timer.html';
 });
 
-// Continue → save task label and go to break length screen
+// Continue → save task label and go to timer screen
 continueBtn.addEventListener('click', () => {
   const label = input.value.trim();
   if (!label) return;
   localStorage.setItem('taskLabel', label);
-  window.location.href = 'break.html';
+  sessionStorage.removeItem('timeRemaining');
+  window.location.href = 'timer.html';
 });
